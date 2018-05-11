@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.foxconn.dao.SearchdataDao">
+
+	<resultMap type="org.foxconn.entity.SeagateData1" id="data1">
+		<result column="sysserialno" property="sysserialno" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="eventname" property="eventname" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="eventpass" property="eventpass" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="eventfail" property="eventfail" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="scandatetime" property="scandatetime" jdbcType="TIMESTAMP"
+			javaType="DATE" />
+	</resultMap>
+	<resultMap type="org.foxconn.entity.SeagateData2" id="data2">
+		<result column="ssn" property="ssn" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="skuno" property="skuno" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="csn" property="csn" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="partno" property="partno" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="miaoshu" property="miaoshu" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="subSSN" property="subSSN" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="subCSN" property="subCSN" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="subPARTNO" property="subPARTNO" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="subMIAOSHU" property="subMIAOSHU" jdbcType="VARCHAR"
+			javaType="String" />
+	</resultMap>
+
+
+	<resultMap type="org.foxconn.entity.SeagateData3" id="data3">
+		<result column="num" property="num" jdbcType="INTEGER"
+			javaType="INTEGER" />
+		<result column="actioncode" property="actioncode" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="description" property="description" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="createdate" property="createdate" jdbcType="TIMESTAMP"
+			javaType="DATE" />
+	</resultMap>
+	<resultMap type="org.foxconn.entity.SeagateData4" id="data4">
+		<result column="SSN" property="SSN" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="STATION" property="STATION" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="eventfail" property="eventfail" jdbcType="VARCHAR"
+			javaType="String" />
+		<result column="DATA" property="DATA" jdbcType="VARCHAR"
+			javaType="String" />
+	</resultMap>
+
+	<select id="findData" resultMap="data1,data2,data3,data4"
+		statementType="CALLABLE">
+		{call searchdata}
+
+	</select>
+
+
+</mapper>        
+ 

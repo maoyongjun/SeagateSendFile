@@ -57,11 +57,12 @@
      <beans:bean id="dataSource" class="org.foxconn.database.DynamicDataSource">
         <beans:property name="targetDataSources">
             <beans:map key-type="java.lang.String">
-        		<beans:entry key="dataSource1" value-ref="db1"></beans:entry>
+        		<beans:entry key="seagate" value-ref="db1"></beans:entry>
+        		<beans:entry key="dothill" value-ref="db2"></beans:entry>
             </beans:map>
         </beans:property>
    		 <!-- 默认目标数据源为你主库数据源 -->
-        <beans:property name="defaultTargetDataSource" ref="db7"/>
+        <beans:property name="defaultTargetDataSource" ref="db1"/>
     </beans:bean>
     
     <!-- 配置事务管理组件 -->
@@ -87,13 +88,15 @@
 	</beans:bean>
     	     
     <!-- 数据库的配置 -->
-    <beans:bean id="db1" class="org.apache.commons.dbcp.BasicDataSource">
+    <beans:bean id="db2" class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></beans:property>
-		<beans:property name="url" value="jdbc:sqlserver://10.67.44.194:3000;DatabaseName=efoxsfcmu3seagate_test"></beans:property>
-		<beans:property name="username" value="onsitetest"></beans:property>
-		<beans:property name="password" value="os$4tet"></beans:property>
+		<beans:property name="url" value="jdbc:sqlserver://10.67.70.75:3000;DatabaseName=efoxsfclxdh"></beans:property>
+		<beans:property name="username" value="essnlxddl"></beans:property>
+		<beans:property name="password" value="Fdblx1601"></beans:property>
+		<beans:property name="initialSize" value="2"></beans:property>
+		<beans:property name="maxActive" value="2"></beans:property>
 	</beans:bean>
-	<beans:bean id="db7" class="org.apache.commons.dbcp.BasicDataSource">
+	<beans:bean id="db1" class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></beans:property>
 		<beans:property name="url" value="jdbc:sqlserver://10.67.70.73:3000;DatabaseName=efoxsfcmu3seagate"></beans:property>
 		<beans:property name="username" value="msd2ddl"></beans:property>

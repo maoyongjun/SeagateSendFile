@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.aspectj.weaver.GeneratedReferenceTypeDelegate;
 import org.foxconn.dao.SearchdataDao;
+import org.foxconn.database.DataSourceHolder;
 import org.foxconn.entity.SeagateData1;
 import org.foxconn.entity.SeagateData2;
 import org.foxconn.entity.SeagateData3;
@@ -69,7 +70,7 @@ public class SeagateDataServiceImpl implements SeagateDataService {
 	private void writeExcle(){
 		logger.debug("begin write Excle");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
-		fileName ="SG_"+sdf.format( new Date())+".xlsx";
+		fileName =(DataSourceHolder.seagate.equals(DataSourceHolder.getDataSource())?"SG_":"DH_")+sdf.format( new Date())+".xlsx";
 		List<ArrayList<String[]>> ls =new ArrayList<ArrayList<String[]>>();
 		ls.add((ArrayList<String[]>) ToStringArrayUtil.toStringArray(data1));
 		ls.add((ArrayList<String[]>) ToStringArrayUtil.toStringArray(data2));

@@ -4,6 +4,8 @@ package org.foxconn.database;
 * @version 1.0 
 */
 public class DataSourceHolder {
+	public static String seagate = "seagate";
+    public static String dothill = "dothill";
     private static final ThreadLocal<String> dataSources = new ThreadLocal<String>();
     public static void setDataSource(String customerType) {
         dataSources.set(customerType);
